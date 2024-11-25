@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Khodam</title>
+    <!-- CDN Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com">style.css</script>
+</head>
+<body class="bg-blue-800 flex justify-center items-center h-screen">
+    <main class="border-4 border-gray-200 p-8 text-center rounded-lg">
+        <h1 class="text-white text-3xl font-bold mb-6">CEK KHODAM BUATAN DIMZ27</h1>
+        
+        <!-- Form Input -->
+        <div class="flex flex-col items-center">
+            <input 
+                id="inputNama"
+                type="text" 
+                class="rounded mt-3 bg-gray-600 text-white p-3 text-center border border-gray-400"
+                placeholder="Masukkan Nama...">
+                
+            <button
+                id="cekBtn"
+                class="text-white p-3 bg-blue-500 rounded mt-4 hover:bg-blue-600 transition duration-200"
+            >
+                Cek Khodam
+            </button>
+        </div>
+        
+        <!-- Divider -->
+        <div class="border-b border-gray-400 mt-4"></div>
+        
+        <!-- Hasil Output -->
+        <div class="text-white mt-4">
+            <h2>Hasil Cek Khodam</h2> <p>Nama Anda: <span id="nama">-</span></p><p>Hasil: <span id="hasil" class="text-blue-400">-</span></p>
+        </div>
+    </main>
+
+    <script>
+        // Event listener untuk tombol cek khodam
+        document.getElementById('cekBtn').addEventListener('click', function() {
+            // Ambil nama dari input
+            const nama = document.getElementById('inputNama').value;
+
+            // Cek apakah nama kosong
+            if (nama === '') {
+                alert('Nama tidak boleh kosong!');
+                return;
+            }
+
+           // Menghasilkan khodam berdasarkan nama
+            const khodam = generateKhodam(nama);
+            
+            // Tampilkan nama dan khodam di elemen yang sesuai
+            document.getElementById('nama').textContent = nama;
+            document.getElementById('hasil').textContent = khodam;
+
+            // Kosongkan input setelah cek
+            document.getElementById('inputNama').value = '';
+        });
+
+        // Fungsi untuk menghasilkan khodam berdasarkan panjang nama
+        function generateKhodam(nama) {
+            const khodam = [
+                'Khodam Penjaga',
+                'Macan pemarah',
+                'Buaya sunda',
+                'Beruang sunda',
+                'Tutup odol',
+                'Tutup panci ',
+                'Kanebo kering ',
+                'Kapal karam ',
+                'Gergaji mesin ',
+                'Nyi blorong ',
+                'Jin rawa rontek ',
+                'Kucing Israel ',
+                'Capung gila ',
+                'Tumis kangkung ',
+                'Jam Dinding Rusak ',
+                'Gunting Tumpul ',
+                'Kasur Empuk ',
+                'Payung Robek ',
+                'Kulkas Kosong ',
+                'Piring Pecah ',
+                'Meja Berdecit ',
+                'Koper Berat ',
+                'Topi Melorot ',
+                'Lem Super Lengket ',
+                'Keripik Garing ',
+                'Senter Mati ',
+                'Kue Kering',
+                'Bantal Empuk ',
+                'Kendi Air ',
+                'Penggaris Melengkung ',
+                'Tali Jemuran ',
+                'Kancut badak ',
+                'Rayap gendut ',
+                'Pagar besi ',
+                'Kunci gembok ',
+                'LC karaoke ',
+                'Cicak kawin ',
+                'Cupang Betina ',
+                'Sundel Bolong ',
+                'Tuyul Kesandung ',
+                'Genderuwo TikTok ',
+                'Jin Susu Kental Manis ',
+                'Si Lontong Lumer',
+                'Setan Payung Bocor',
+                'Jin Es Krim Leleh',
+                'Pocong Bersepeda',
+                'Kuntilanak Selfie',
+                'Tuyul Main PS5',
+                'Batu Bata',
+                'Remote TV',
+                'Kompor Meledak',
+                'Helm Nyasar',
+                'Gitar Putus Senar',
+                'Si Sate Klathak',
+                'Jin Penjual Cilok',
+                'Setan Jualan Online',
+                'Kuntilanak Kecanduan Kopi',
+                'Pocong Nyanyi Dangdut',
+                'Jin Martabak Telor',
+                'Tuyul Kerja Part-Time',
+                'Handuk Basah',
+                'Kipas Rusak',
+                'Jemuran Penuh',
+                'Tisu Gulung',
+                'Gelas Plastik',
+                'Si Bakso Urat',
+                'Setan Suka Drama Korea',
+                'Genderuwo Nonton Netfix',
+                'Jin Donat Ketang',
+                'Kuntilanak Pake Kacamata',
+                'Pocong Mainan Kucing',
+                'Jin Peminum Boba',
+                'Tuyul Bersepatu Roda',
+                'Si Keripik Pedas',
+                'Setan Kolektor Komik',
+                'Genderuwo Pemain Basket',
+                'Jin Sate Madura',
+                'Kuntilanak Nge-Gym',
+                'Pocong Ngantor',
+                'Tuyul Jago Coding',
+                'Si Pizza Keju',
+                'Setan Pemilik Cafe',
+                'Genderuwo Seniman',
+                'Jin Coklat Batangan',
+                'Kuntilanak Hobi Makeup',
+                'Pocong Main TikTok',
+                'Tuyul Kuliah Online',
+                'Si Rambutan Manis',
+                'Sendal Jepit',
+                'Panci Gosong',
+                'Guling Gembung',
+                'Sarung Bantal',
+                'Kaos Oblong',
+                'Jin Kipas Angin',
+                'Setan Pembeli Pulsa',
+                'Kuntilanak Karaoke',
+                'Pocong Joget',
+                'Ember Bocor',
+                'Celana Sobek',
+                'Sepeda Tua',
+                'Telepon Jadul',
+                'Tas Plastik',
+                'Kalender Bekas',
+                'Pensil Inul',
+                'Buku Kusut',
+                'Korek Kusut',
+                'Mangkok Retak',
+                'Lemari Penuh',
+            ];
+
+            // Menggunakan sisa bagi dari panjang nama dengan panjang array khodam untuk menentukan khodam
+            const index = nama.length % khodam.length;
+            return khodam[index];  // Kembalikan khodam berdasarkan index
+        }
+    </script>
+</body>
+</html>
